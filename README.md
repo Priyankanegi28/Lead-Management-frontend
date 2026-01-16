@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# Lead Management Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack CRM dashboard for managing leads with analytics. Built with React, Node.js, Express, and MongoDB.
 
-## Available Scripts
+## 🚀 **IMPORTANT: Read Before Accessing**
 
-In the project directory, you can run:
+**⚠️ Backend needs to wake up first!** (Render free tier spins down after inactivity)
 
-### `npm start`
+**Step 1: Wake up backend server**  
+Visit: [https://lead-management-backend-dpcw.onrender.com](https://lead-management-backend-dpcw.onrender.com)  
+Wait 30 seconds until you see API response
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Step 2: Access frontend**  
+URL: [https://lead-managemnt.netlify.app/](https://lead-managemnt.netlify.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📍 Live Links
+- **Frontend**: [https://lead-managemnt.netlify.app/](https://lead-managemnt.netlify.app/)
+- **Backend API**: [https://lead-management-backend-dpcw.onrender.com](https://lead-management-backend-dpcw.onrender.com)
+- **Frontend Code**: [GitHub](https://github.com/Priyankanegi28/Lead-Management-frontend)
+- **Backend Code**: [GitHub](https://github.com/Priyankanegi28/Lead-Management-backend)
 
-### `npm test`
+## 🔑 Demo Credentials
+```
+Email: admin@example.com
+Password: password123
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Features
+- ✅ User authentication (JWT)
+- ✅ Dashboard with analytics charts
+- ✅ Leads management with search/filter/sort
+- ✅ Mobile responsive design
+- ✅ 500+ sample leads generation
+- ✅ Deployed on Netlify + Render
 
-### `npm run build`
+## 🛠️ Tech Stack
+- **Frontend**: React, Material-UI, Recharts
+- **Backend**: Node.js, Express, MongoDB
+- **Database**: MongoDB Atlas
+- **Hosting**: Netlify (Frontend), Render (Backend)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📋 API Endpoints
+- `POST /api/auth/login` - User login
+- `GET /api/leads` - Get leads with pagination
+- `GET /api/leads/analytics` - Get dashboard analytics
+- `POST /api/leads/seed` - Generate sample data
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Local Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Backend Setup
+```bash
+git clone https://github.com/Priyankanegi28/Lead-Management-backend.git
+cd Lead-Management-backend
+npm install
 
-### `npm run eject`
+# Create .env file with:
+# MONGODB_URI=your_mongodb_connection
+# JWT_SECRET=your-secret-key
+# PORT=5000
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+node seed.js  # Create admin user
+npm run dev   # Start server
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. Frontend Setup
+```bash
+git clone https://github.com/Priyankanegi28/Lead-Management-frontend.git
+cd Lead-Management-frontend
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Create .env file with:
+# REACT_APP_API_URL=http://localhost:5000
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+npm start  # Start React app
+```
 
-## Learn More
+## 📱 Pages
+1. **Login Page** - Authentication
+2. **Dashboard** - Analytics with charts
+3. **Leads Page** - Manage leads with filters
+4. **Lead Details** - View individual lead info
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🎯 Key Functionalities
+- Search leads by name/email/company
+- Filter by status and source
+- Pagination (10, 25, 50 rows per page)
+- Sort by any column
+- View lead details
+- Generate sample data
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔧 Deployment
+- **Frontend**: Netlify (CI/CD from GitHub)
+- **Backend**: Render (Free tier with cold starts)
+- **Database**: MongoDB Atlas (Free tier)
