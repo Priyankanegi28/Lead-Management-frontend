@@ -1,14 +1,31 @@
 import {
-    Refresh as RefreshIcon, Search as SearchIcon, Visibility as VisibilityIcon
+    Refresh as RefreshIcon,
+    Search as SearchIcon,
+    Visibility as VisibilityIcon
 } from '@mui/icons-material';
 import {
-    Box, Button, Chip, CircularProgress, FormControl, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Table,
+    Box,
+    Button,
+    Chip,
+    CircularProgress,
+    FormControl,
+    Grid,
+    IconButton,
+    InputLabel,
+    MenuItem,
+    Paper,
+    Select,
+    Table,
     TableBody,
     TableCell,
     TableContainer,
-    TableHead, TablePagination, TableRow, TextField, Typography
+    TableHead,
+    TablePagination,
+    TableRow,
+    TextField,
+    Typography
 } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
@@ -28,11 +45,7 @@ const Leads = () => {
   });
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchLeads();
-  }, [page, rowsPerPage, filters]);
-
-  const fetchLeads = async () => {
+  const fetchLeads = useCallback(async () => {
     setLoading(true);
     try {
       const params = {
@@ -51,7 +64,11 @@ const Leads = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [page, rowsPerPage, search, filters.status, filters.source]);
+
+  useEffect(() => {
+    fetchLeads();
+  }, [fetchLeads]);
 
   const handleSearch = (e) => {
     setSearch(e.target.value);

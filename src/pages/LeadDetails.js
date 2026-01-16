@@ -1,13 +1,29 @@
 import {
-    ArrowBack as ArrowBackIcon, Business as BusinessIcon, CalendarToday as CalendarIcon, Email as EmailIcon, Notes as NotesIcon, Person as PersonIcon, Phone as PhoneIcon, Source as SourceIcon, Work as WorkIcon
+    ArrowBack as ArrowBackIcon,
+    Business as BusinessIcon,
+    CalendarToday as CalendarIcon,
+    Email as EmailIcon,
+    Notes as NotesIcon,
+    Person as PersonIcon,
+    Phone as PhoneIcon,
+    Source as SourceIcon,
+    Work as WorkIcon
 } from '@mui/icons-material';
 import {
-    Box, Button, Chip, CircularProgress,
-    Divider, Grid, List,
-    ListItem, ListItemIcon, ListItemText, Paper,
+    Box,
+    Button,
+    Chip,
+    CircularProgress,
+    Divider,
+    Grid,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Paper,
     Typography
 } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import Layout from '../components/Layout';
@@ -20,11 +36,7 @@ const LeadDetails = () => {
   const [lead, setLead] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchLeadDetails();
-  }, [id]);
-
-  const fetchLeadDetails = async () => {
+  const fetchLeadDetails = useCallback(async () => {
     try {
       const response = await leadsAPI.getLeadById(id);
       setLead(response.data);
@@ -34,7 +46,11 @@ const LeadDetails = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id, navigate]);
+
+  useEffect(() => {
+    fetchLeadDetails();
+  }, [fetchLeadDetails]);
 
   if (loading) {
     return (
